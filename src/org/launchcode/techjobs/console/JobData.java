@@ -21,6 +21,7 @@ public class JobData {
     private static Boolean isDataLoaded = false;
 
     private static ArrayList<HashMap<String, String>> allJobs;
+    private static ArrayList<HashMap<String, String>> allJobsCopy;
 
     /**
      * Fetch list of all values from loaded data,
@@ -36,7 +37,11 @@ public class JobData {
 
         ArrayList<String> values = new ArrayList<>();
 
-        for (HashMap<String, String> row : allJobs) {
+        for (HashMap<String, String> job : allJobs) {
+            allJobsCopy.add(job);
+        }
+
+        for (HashMap<String, String> row : allJobsCopy) {
             String aValue = row.get(field);
 
             if (!values.contains(aValue)) {
